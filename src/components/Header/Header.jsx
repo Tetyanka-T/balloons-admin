@@ -26,7 +26,7 @@ const Header = () => {
         </li>
         <li className={s.header_list__item}>
           <NavLink
-            to="/orders"
+            to="/orders/new"
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
             Замовлення

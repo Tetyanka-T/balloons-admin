@@ -1,0 +1,14 @@
+@use '../variables' as *;
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: $accent-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    width: 100vw;
+    background-color: $text-color;
+    cursor: pointer;
+}
