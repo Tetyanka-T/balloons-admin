@@ -1,0 +1,33 @@
+@use '../variables' as *;
+
+.header {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: $text-color;
+}
+.header_list {
+    display: flex;
+
+    & li {
+        margin-right: 40px;
+    }
+    & li:last-child {
+        margin-right: 0;
+    }
+    
+}
+
+.header_log {
+    margin-left: auto;
+    display: flex;
+    margin-right: 10px;
+}
+.header_log__out {
+    margin-left: 5px;
+}
+.header_logo {
+    margin-left: 400px;
+}
