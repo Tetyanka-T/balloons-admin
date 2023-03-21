@@ -13,7 +13,7 @@ const OrdersPageNew = () => {
         <OrdersList />
       </Container>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import s from "./OrderNavigation.module.scss";
 
 const OrderNavigation = () => {
@@ -6,13 +6,13 @@ const OrderNavigation = () => {
     <>
       <ul className={s.order_list}>
         <li className={s.order_list__item}>
-          <Link to="/orders/new">Нові</Link>
+          <NavLink to="/orders/new">Нові</NavLink>
         </li>
         <li className={s.order_list__item}>
-          <Link to="/orders/in-work">В роботі</Link>
+          <NavLink to="/orders/in-work">В роботі</NavLink>
         </li>
         <li className={s.order_list__item}>
-          <Link to="/orders/finish">Завершені</Link>
+          <NavLink to="/orders/finish">Завершені</NavLink>
         </li>
       </ul>
     </>
