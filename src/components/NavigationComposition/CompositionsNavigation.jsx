@@ -14,7 +14,7 @@ const theme = createTheme({
   },
 });
 
-const CompositionsNavigation = () => {
+const CompositionsNavigation = ({ change }) => {
   const [search, setSearch] = useState("");
 
   const handleChange = (event) => {
@@ -24,10 +24,7 @@ const CompositionsNavigation = () => {
   return (
     <>
       <ul className={s.navigation_list}>
-        <li>
-          <NavLink to="/compositions/create">Створити нову композицію</NavLink>
-        </li>
-        {/* <li>Відредагувати композицію</li> */}
+        <li>{change}</li>
         <li>
           <ThemeProvider theme={theme}>
             <TextField

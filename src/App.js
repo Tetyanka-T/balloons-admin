@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import HomePage from "pages/HomePage";
 import CompositionsPage from "pages/CompositionsPage";
-import CreateCompositionPage from "pages/CreateCompositionPage";
+import ChangeCompositionPage from "pages/ChangeCompositionPage";
 import CardDescription from "components/CardDescription/CardDescription";
 import Loader from "components/Loader/Loader";
 import OrdersPageNew from "pages/OrdersPageNew";
@@ -18,8 +18,8 @@ function App() {
         <Route exact path="/compositions" element={<CompositionsPage />} />
         <Route
           exact
-          path="/compositions/create"
-          element={<CreateCompositionPage />}
+          path="/compositions/change"
+          element={<ChangeCompositionPage />}
         />
         <Route path="/orders/new" element={<OrdersPageNew />} />
         <Route path="/orders/in-work" element={<OrdersPageInWork />} />

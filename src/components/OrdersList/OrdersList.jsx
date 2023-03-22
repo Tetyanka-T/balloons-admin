@@ -66,12 +66,12 @@ const OrdersList = () => {
 
           <FormControl sx={{ width: 320 }}>
             <ThemeProvider theme={theme}>
-              <InputLabel id="status">Змінити статус заказу</InputLabel>
+              <InputLabel id="status">Змінити статус замовлення</InputLabel>
               <Select
                 labelId="status"
                 id="status"
                 value={status}
-                label="Змінити статус заказу"
+                label="Змінити статус замовлення"
                 onChange={handleChange}
               >
                 <MenuItem value={"В роботі"}>В роботі</MenuItem>

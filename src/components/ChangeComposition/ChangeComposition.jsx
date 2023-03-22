@@ -3,7 +3,7 @@ import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import s from "./CreateComposition.module.scss";
+import s from "../CreateComposition/CreateComposition.module.scss";
 // import AddImg from "components/AddImg/AddImg";
 
 const theme = createTheme({
@@ -13,7 +13,7 @@ const theme = createTheme({
     },
   },
 });
-const CreateComposition = () => {
+const ChangeComposition = () => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -153,14 +153,13 @@ const CreateComposition = () => {
           {formik.touched.imgSrc && formik.errors.imgSrc ? (
             <div>{formik.errors.imgSrc}</div>
           ) : null}
-          <Button type="submit" variant="contained" sx={{ width: 100, m: 5 }}>
-            Створити
+          <Button type="submit" variant="contained" sx={{ width: 200, m: 5 }}>
+            Змінити композицію
           </Button>
         </ThemeProvider>
       </form>
-      {/* <AddImg /> */}
     </>
   );
 };
 
-export default CreateComposition;
+export default ChangeComposition;

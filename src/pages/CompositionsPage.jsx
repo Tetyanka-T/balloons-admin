@@ -1,4 +1,6 @@
 import { Container } from "@mui/material";
+import CardDescription from "components/CardDescription/CardDescription";
+import CreateComposition from "components/CreateComposition/CreateComposition";
 import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import CompositionsNavigation from "components/NavigationComposition/CompositionsNavigation";
@@ -8,7 +10,8 @@ const CompositionsPage = () => {
     <>
       <Header />
       <Container maxWidth="lg">
-        <CompositionsNavigation />
+        <CompositionsNavigation change="Створити композицію" />
+        <CreateComposition />
       </Container>
       <Footer />
     </>
