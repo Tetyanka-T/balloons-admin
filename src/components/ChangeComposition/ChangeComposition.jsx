@@ -3,8 +3,8 @@ import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import * as API from "../../apiServise/api";
 import s from "../CreateComposition/CreateComposition.module.scss";
-// import AddImg from "components/AddImg/AddImg";
 
 const theme = createTheme({
   palette: {
@@ -13,18 +13,18 @@ const theme = createTheme({
     },
   },
 });
-const ChangeComposition = () => {
+const ChangeComposition = ({ balloons }) => {
   const formik = useFormik({
     initialValues: {
-      name: "",
-      category: "",
-      grup: "",
-      gender: "",
-      description: "",
-      price: "",
-      code: "",
-      filter: "",
-      imgSrc: "",
+      name: balloons.name,
+      category: balloons.category,
+      grup: balloons.grup,
+      gender: balloons.gender,
+      description: balloons.description,
+      price: balloons.price,
+      code: balloons.code,
+      filter: balloons.filter,
+      // imgSrc: balloons.imgSrc,
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Назва композиції обов'язкова"),
@@ -35,10 +35,10 @@ const ChangeComposition = () => {
       price: Yup.number().min(0.01).required("Ціна обов'язкова"),
       code: Yup.string().required("Артикул обов'язковий"),
       filter: Yup.string().required("Вкажіть слова для фільтрації"),
-      imgSrc: Yup.string().required("Посилання на фото композиції обов'язкове"),
+      // imgSrc: Yup.string().required("Посилання на фото композиції обов'язкове"),
     }),
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      API.changeBalloon(JSON.stringify(values, null, 2));
     },
   });
   return (

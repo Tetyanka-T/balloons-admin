@@ -1,36 +1,40 @@
 import { Routes, Route } from "react-router-dom";
-import { Suspense } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Suspense, useEffect } from "react";
 import HomePage from "pages/HomePage";
 import CompositionsPage from "pages/CompositionsPage";
-import ChangeCompositionPage from "pages/ChangeCompositionPage";
 import CardDescription from "components/CardDescription/CardDescription";
 import Loader from "components/Loader/Loader";
-import OrdersPageNew from "pages/OrdersPageNew";
-import OrdersPageInWork from "pages/OrdersPageInWork";
-import OrdersPageFinish from "pages/OrdersPageFinish";
+import OrdersPage from "pages/OrdersPage";
+import PrivateRoute from "components/PrivatRoute";
+import { authOperations, authSelectors } from "redux/auth";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const isFetchingCurrentAdmin = useSelector(
+    authSelectors.getIsFetchCurrentAdmin
+  );
+  useEffect(() => {
+    dispatch(authOperations.currentAdmin());
+  }, [dispatch]);
   return (
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
+    !isFetchingCurrentAdmin && (
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route element={<PrivateRoute />}>
+            <Route exact path="/compositions" element={<CompositionsPage />} />
+            <Route path="/orders" element={<OrdersPage />} />
 
-        <Route exact path="/compositions" element={<CompositionsPage />} />
-        <Route
-          exact
-          path="/compositions/change"
-          element={<ChangeCompositionPage />}
-        />
-        <Route path="/orders/new" element={<OrdersPageNew />} />
-        <Route path="/orders/in-work" element={<OrdersPageInWork />} />
-        <Route path="/orders/finish" element={<OrdersPageFinish />} />
-
-        <Route
-          path="compositions/:compositionId"
-          element={<CardDescription />}
-        />
-      </Routes>
-    </Suspense>
+            <Route
+              path="compositions/:compositionId"
+              element={<CardDescription />}
+            />
+          </Route>
+          <Route exact path="/" element={<HomePage />} />
+        </Routes>
+      </Suspense>
+    )
   );
 }
 

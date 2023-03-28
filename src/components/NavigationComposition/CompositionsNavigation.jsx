@@ -1,43 +1,43 @@
-import { NavLink } from "react-router-dom";
-import { TextField } from "@mui/material";
-import { useState } from "react";
-import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material/styles";
-import s from "./CompositionsNavigation.module.scss";
 import CreateComposition from "components/CreateComposition/CreateComposition";
+import SearchComposition from "components/SearchComposition/SearchComposition";
+import { useState } from "react";
+import s from "./CompositionsNavigation.module.scss";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FFA500",
-    },
-  },
-});
+const CompositionsNavigation = () => {
+  const [create, setCreate] = useState(false);
+  const [change, setChange] = useState(false);
 
-const CompositionsNavigation = ({ change }) => {
-  const [search, setSearch] = useState("");
-
-  const handleChange = (event) => {
-    setSearch(event.target.value);
+  const onShowCreate = () => {
+    setCreate(true);
+    toggleCreate();
+    setChange(false);
+  };
+  const toggleCreate = () => {
+    create ? setCreate(false) : setCreate(true);
   };
 
+  const onShowChange = () => {
+    setChange(true);
+    toggleChange();
+    setCreate(false);
+  };
+  const toggleChange = () => {
+    change ? setChange(false) : setChange(true);
+  };
   return (
     <>
       <ul className={s.navigation_list}>
-        <li>{change}</li>
         <li>
-          <ThemeProvider theme={theme}>
-            <TextField
-              id="search"
-              name="search"
-              label="Пошук композиції за кодом"
-              value={search}
-              onChange={handleChange}
-              sx={{ width: 280, mt: -3 }}
-            />
-          </ThemeProvider>
+          <button onClick={() => onShowCreate()}>Створити композицію</button>
+        </li>
+        <li>
+          <button onClick={() => onShowChange()}>
+            Пошук композиції/змінити
+          </button>
         </li>
       </ul>
+      {create && <CreateComposition />}
+      {change && <SearchComposition />}
     </>
   );
 };

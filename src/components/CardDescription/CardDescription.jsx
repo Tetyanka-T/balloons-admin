@@ -1,9 +1,19 @@
-import { Link } from "react-router-dom";
+import ChangeComposition from "components/ChangeComposition/ChangeComposition";
+import { useState } from "react";
 import { ReactComponent as Basket } from "../../images/basket.svg";
 import photo1 from "../../images/photo_1.jpg";
 import s from "./CardDescription.module.scss";
 
-const CardDescription = () => {
+const CardDescription = ({ balloons }) => {
+  const [change, setChange] = useState(false);
+  const onShowChange = () => {
+    setChange(true);
+    toggleChange();
+   
+  };
+  const toggleChange = () => {
+    change ? setChange(false) : setChange(true);
+  };
   return (
     <div className={s.cardDescription_container}>
       <div className={s.cardDescription_photo_container}>
@@ -17,13 +27,13 @@ const CardDescription = () => {
         <div className={s.transparent}></div>
       </div>
       <div>
-        <h3 className={s.cardDescription_title}>Супер-пупер композиція</h3>
-        <p className={s.cardDescription_article}>арт.№</p>
+        <h3 className={s.cardDescription_title}>{balloons.name}</h3>
+        <p className={s.cardDescription_article}>арт.№ {balloons.code}</p>
         <p className={s.cardDescription_descriptionComposition}>
-          Композиція для дівчинки на День народження складається з ...
+          {balloons.description}
         </p>
         <div className={s.cardDescription_price_container}>
-          <p className={s.cardDescription_price}>2000 грн.</p>
+          <p className={s.cardDescription_price}>{balloons.price} грн.</p>
           <button className={s.cardDescription_button__basket}>
             Купити
             <Basket className={s.cardDescription_button__icon} />
@@ -33,9 +43,13 @@ const CardDescription = () => {
           *Просимо звернути увагу: колір товару може відрізнятися в залежності
           від освітлення та налаштувань Вашого екрану.
         </p>
-        <div className={s.change_composition}>
+        {/* <div className={s.change_composition}>
           <Link to="/compositions/change">Внести зміни до композиції</Link>
-        </div>
+        </div> */}
+        <button className={s.change_composition} onClick={() =>onShowChange()}>
+          Внести зміни до композиції
+        </button>
+        {change && <ChangeComposition balloons={balloons}/>}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const OrderNavigation = () => {
     <>
       <ul className={s.order_list}>
         <li className={s.order_list__item}>
-          <NavLink to="/orders/new">Нові</NavLink>
+          <NavLink to="/orders">Нові</NavLink>
         </li>
         <li className={s.order_list__item}>
           <NavLink to="/orders/in-work">В роботі</NavLink>
