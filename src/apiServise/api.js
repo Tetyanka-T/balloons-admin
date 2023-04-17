@@ -13,7 +13,7 @@ export const getBalloonsById = async (balloonId) => {
 };
 export const changeBalloon = async (balloonId) => {
   const balloon = await axios.put(`api/balloons/${balloonId}`);
-  return balloon.data;
+  return balloon;
 };
 export const addBalloon = async (balloon) => {
   const { data } = await axios.post("api/balloons", balloon);

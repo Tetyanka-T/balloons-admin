@@ -35,7 +35,9 @@ const AdminHeader = () => {
         </div>
         <div className={s.header_log}>
           <User />
-          <p>Привіт адмін, гарного робочого дня</p>
+          <p>
+            Привіт адмін, <br /> гарного робочого дня
+          </p>
           <button
             onClick={() => dispatch(authOperations.logout())}
             className={s.header_log__out}

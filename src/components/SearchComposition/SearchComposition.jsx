@@ -4,6 +4,7 @@ import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import * as API from "../../apiServise/api";
 import CardDescription from "components/CardDescription/CardDescription";
+import s from "./SearchComposition.module.scss";
 
 const theme = createTheme({
   palette: {
@@ -28,7 +29,7 @@ const SearchComposition = () => {
   };
   return (
     <>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className={s.form}>
         <ThemeProvider theme={theme}>
           <TextField
             id="search"

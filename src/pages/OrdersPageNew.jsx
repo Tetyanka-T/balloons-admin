@@ -20,6 +20,7 @@ function OrdersPageNew() {
       <Container maxWidth="lg">
         <OrderNavigation />
         {newOrders && <OrdersList orders={newOrders} />}
+        {newOrders.length === 0 && <h2>У вас немає нових замовлень</h2>}
       </Container>
     </>
   );

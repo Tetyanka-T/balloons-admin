@@ -4,7 +4,6 @@ import { createTheme } from "@mui/material/styles";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import s from "./CreateComposition.module.scss";
-// import AddImg from "components/AddImg/AddImg";
 import * as API from "../../apiServise/api";
 
 const theme = createTheme({

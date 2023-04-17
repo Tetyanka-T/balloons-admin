@@ -17,7 +17,7 @@ const CardDescription = ({ balloons }) => {
     <div className={s.cardDescription_container}>
       <div className={s.cardDescription_photo_container}>
         <img
-          src={photo1}
+          src={balloons.imgSrc}
           alt=""
           width={200}
           height={100}
@@ -33,15 +33,7 @@ const CardDescription = ({ balloons }) => {
         </p>
         <div className={s.cardDescription_price_container}>
           <p className={s.cardDescription_price}>{balloons.price} грн.</p>
-          <button className={s.cardDescription_button__basket}>
-            Купити
-            <Basket className={s.cardDescription_button__icon} />
-          </button>
         </div>
-        <p className={s.cardDescription_inform}>
-          *Просимо звернути увагу: колір товару може відрізнятися в залежності
-          від освітлення та налаштувань Вашого екрану.
-        </p>
         <button className={s.change_composition} onClick={() => onShowChange()}>
           Внести зміни до композиції
         </button>

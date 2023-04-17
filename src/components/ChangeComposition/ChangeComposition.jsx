@@ -16,6 +16,7 @@ const theme = createTheme({
 const ChangeComposition = ({ balloons }) => {
   const formik = useFormik({
     initialValues: {
+      id: balloons.id,
       name: balloons.name,
       category: balloons.category,
       grup: balloons.grup,
@@ -35,8 +36,9 @@ const ChangeComposition = ({ balloons }) => {
       price: Yup.number().min(0.01).required("Ціна обов'язкова"),
       code: Yup.string().required("Артикул обов'язковий"),
       filter: Yup.string().required("Вкажіть слова для фільтрації"),
-      // imgSrc: Yup.string().required("Посилання на фото композиції обов'язкове"),
+      imgSrc: Yup.string().required("Посилання на фото композиції обов'язкове"),
     }),
+
     onSubmit: (values) => {
       API.changeBalloon(JSON.stringify(values, null, 2));
     },

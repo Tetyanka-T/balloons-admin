@@ -10,7 +10,6 @@ const OrdersPage = () => {
       <Container maxWidth="lg">
         <OrderNavigation />
       </Container>
-
       <Footer />
     </>
   );

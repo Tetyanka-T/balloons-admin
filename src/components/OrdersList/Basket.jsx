@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as API from "../../apiServise/api";
+import s from "./OrdersList.module.scss";
 
 const Basket = ({ basket }) => {
   const [balloon, setBallons] = useState("");
@@ -9,10 +10,10 @@ const Basket = ({ basket }) => {
   }, [basket.balloon]);
 
   return (
-    <ul>
+    <ul className={s.basket_list}>
       {/* {balloons.map((balloon) => ( */}
-      <li key={balloon.id}>
-        <img src="" alt="" width={320} height={300} />
+      <li key={balloon.id} className={s.basket_list__item}>
+        <img src={balloon.imgSrc} alt="" width={350} height={370} />
         <p>Категорія: {balloon.category}</p>
         <p>Код: {balloon.code}</p>
         <p>Ціна: {balloon.price}</p>

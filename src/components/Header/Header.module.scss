@@ -2,7 +2,7 @@
 
 .header {
     display: flex;
-    padding: 20px;
+    padding: 70px;
     align-items: center;
     font-size: 18px;
     font-weight: 400;
@@ -23,12 +23,18 @@
 .header_log {
     margin-left: auto;
     display: flex;
-    margin-right: 10px;
+    & svg {
+        margin-right: 5px;
+        margin-top: 7px;
+    }
 }
 .header_log__out {
     margin-left: 5px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    color: $text-color;
 }
 .header_logo {
-    margin-left: 400px;
+    margin-left: 550px;
 }

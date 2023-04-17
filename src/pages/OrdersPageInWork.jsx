@@ -15,13 +15,13 @@ const OrdersPageInWork = () => {
   const inWorkOrder = orders.filter(
     (order) => order.statusOrder === "в роботі"
   );
-  console.log(inWorkOrder);
   return (
     <>
       <AdminHeader />
       <Container maxWidth="lg">
         <OrderNavigation />
         {inWorkOrder && <OrdersList orders={inWorkOrder} />}
+        {inWorkOrder.length === 0 && <h2>У вас немає замовлень в роботі</h2>}
       </Container>
     </>
   );

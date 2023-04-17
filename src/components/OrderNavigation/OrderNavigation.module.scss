@@ -3,9 +3,16 @@
 .order_list {
     display: flex;
     align-items: center;
+    margin: 20px 0;
   
     & .order_list__item {
         margin-right: 50px;
+        &:hover, &:focus {
+            & button {
+                color: $accent-color;
+            }
+            
+        }
     }
 }
 .order_list__item {

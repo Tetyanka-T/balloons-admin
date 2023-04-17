@@ -4,9 +4,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
-    color: $text-color;
     margin: 30px 0;
+    & button {
+        font-size: 18px;
+        color: $text-color;
+
+        &:focus, &:hover {
+            color: $accent-color;
+        }
+    }
 }
 .searchForm_input {
     display: block;

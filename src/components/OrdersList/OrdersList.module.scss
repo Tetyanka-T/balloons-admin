@@ -29,9 +29,26 @@
     text-align: center;
   }
 }
-
+.basket_list__item {
+    & p {
+        margin-top: 10px;
+    }
+    
+}
+.text {
+    font-weight: 500;
+    font-size: 16px;
+    color: $text-color;
+}
 .ordersList_change_status {
     font-weight: 600;
     font-size: 16px;
     color: $text-color;
+}
+.deleteButton {
+    font-weight: 500;
+    font-size: 16px;
+    color: $text-color;
+    margin-top: 15px;
+    border-bottom: 1px solid $text-color;
 }

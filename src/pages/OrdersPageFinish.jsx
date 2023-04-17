@@ -13,15 +13,16 @@ const OrdersPageFinish = () => {
   }, []);
 
   const finishOrder = orders.filter(
-    (order) => order.statusOrder === "в роботі"
+    (order) => order.statusOrder === "завершений"
   );
+  console.log(finishOrder);
   return (
     <>
       <AdminHeader />
       <Container maxWidth="lg">
         <OrderNavigation />
         {finishOrder && <OrdersList orders={finishOrder} />}
-        {!finishOrder && <h2>У вас немає замовлень в роботі</h2>}
+        {finishOrder.length === 0 && <h2>У вас немає завершених замовлень</h2>}
       </Container>
     </>
   );

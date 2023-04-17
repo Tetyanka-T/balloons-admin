@@ -20,10 +20,15 @@ const OrdersList = ({ orders }) => {
       <ul className={s.orders_list}>
         {orders.map((order) => (
           <li className={s.orders_list__item} key={order._id}>
-            <button onClick={() => onDeleteOrder(order.id)}>Delete</button>
             <div className={s.orders_list__item_title}>
-              <p>Дата замолення: {timeFormat(order.updatedAt)}</p>
-              <p>Статус замовлення: {order.statusOrder}</p>
+              <p className={s.text}>
+                Дата замолення: <br />
+                {order.updatedAt.split("T")[0]}
+              </p>
+              <p className={s.text}>
+                Статус замовлення: <br />
+                {order.statusOrder}
+              </p>
             </div>
             <ul className={s.orders_list__item_userList}>
               <span>Замовник</span>
@@ -63,6 +68,12 @@ const OrdersList = ({ orders }) => {
               ))}
             </ul>
             <ChangeStatus order={order.id} />
+            <button
+              onClick={() => onDeleteOrder(order.id)}
+              className={s.deleteButton}
+            >
+              Видалити замовлення
+            </button>
           </li>
         ))}
       </ul>
