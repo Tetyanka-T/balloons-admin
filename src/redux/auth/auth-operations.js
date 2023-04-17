@@ -26,7 +26,7 @@ const register = createAsyncThunk(
   }
 );
 
-const logIn = createAsyncThunk(
+const login = createAsyncThunk(
   "auth/login",
   async (admin, { rejectWithValue }) => {
     try {
@@ -40,11 +40,11 @@ const logIn = createAsyncThunk(
   }
 );
 
-const logOut = createAsyncThunk(
+const logout = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
-      await axios.post("api/auth/logout");
+      await axios.get("api/auth/logout");
       token.unset();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -74,8 +74,8 @@ export const currentAdmin = createAsyncThunk(
 
 const operations = {
   register,
-  logOut,
-  logIn,
+  logout,
+  login,
   currentAdmin,
 };
 export default operations;

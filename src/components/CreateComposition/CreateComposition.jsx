@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import s from "./CreateComposition.module.scss";
 // import AddImg from "components/AddImg/AddImg";
+import * as API from "../../apiServise/api";
 
 const theme = createTheme({
   palette: {
@@ -38,7 +39,7 @@ const CreateComposition = () => {
       imgSrc: Yup.string().required("Посилання на фото композиції обов'язкове"),
     }),
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      API.addBalloon(JSON.stringify(values, null, 2));
     },
   });
   return (

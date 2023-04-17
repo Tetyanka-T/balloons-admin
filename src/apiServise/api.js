@@ -15,6 +15,10 @@ export const changeBalloon = async (balloonId) => {
   const balloon = await axios.put(`api/balloons/${balloonId}`);
   return balloon.data;
 };
+export const addBalloon = async (balloon) => {
+  const { data } = await axios.post("api/balloons", balloon);
+  return data;
+};
 export const getOrders = async () => {
   const orders = await axios.get("api/orders");
   return orders.data.data;
@@ -43,4 +47,9 @@ export const adminLogIn = async (credentials) => {
 
 export const adminLogOut = async () => {
   await axios.post("api/auth/logout");
+};
+
+export const adminCurrent = async () => {
+  const response = await axios.get("api/auth/current");
+  return response;
 };

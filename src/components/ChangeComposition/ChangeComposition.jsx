@@ -24,7 +24,7 @@ const ChangeComposition = ({ balloons }) => {
       price: balloons.price,
       code: balloons.code,
       filter: balloons.filter,
-      // imgSrc: balloons.imgSrc,
+      imgSrc: balloons.imgSrc,
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Назва композиції обов'язкова"),

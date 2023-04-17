@@ -6,10 +6,15 @@ const ordersSlice = createSlice({
 
   initialState: {
     items: [],
+    filter: [],
     isLoading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    changeFilter: (state, action) => {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: {
     [getOrders.fulfilled]: (state, action) => {
       state.items = action.payload;
@@ -33,5 +38,5 @@ const ordersSlice = createSlice({
     },
   },
 });
-
+export const { changeFilter } = ordersSlice.actions;
 export default ordersSlice.reducer;

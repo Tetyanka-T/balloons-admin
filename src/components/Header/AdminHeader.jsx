@@ -23,7 +23,7 @@ const AdminHeader = () => {
           </li>
           <li className={s.header_list__item}>
             <NavLink
-              to="/orders/new"
+              to="/orders"
               className={({ isActive }) => (isActive ? "active" : "inactive")}
             >
               Замовлення
@@ -37,7 +37,7 @@ const AdminHeader = () => {
           <User />
           <p>Привіт адмін, гарного робочого дня</p>
           <button
-            onClick={() => dispatch(authOperations.logOut())}
+            onClick={() => dispatch(authOperations.logout())}
             className={s.header_log__out}
           >
             / Вийти

@@ -9,7 +9,6 @@ const CardDescription = ({ balloons }) => {
   const onShowChange = () => {
     setChange(true);
     toggleChange();
-   
   };
   const toggleChange = () => {
     change ? setChange(false) : setChange(true);
@@ -43,13 +42,10 @@ const CardDescription = ({ balloons }) => {
           *Просимо звернути увагу: колір товару може відрізнятися в залежності
           від освітлення та налаштувань Вашого екрану.
         </p>
-        {/* <div className={s.change_composition}>
-          <Link to="/compositions/change">Внести зміни до композиції</Link>
-        </div> */}
-        <button className={s.change_composition} onClick={() =>onShowChange()}>
+        <button className={s.change_composition} onClick={() => onShowChange()}>
           Внести зміни до композиції
         </button>
-        {change && <ChangeComposition balloons={balloons}/>}
+        {change && <ChangeComposition balloons={balloons} />}
       </div>
     </div>
   );

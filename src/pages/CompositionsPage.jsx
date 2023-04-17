@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import Footer from "components/Footer/Footer";
-import Header from "components/Header/Header";
+import Header from "components/Header/AdminHeader";
 import CompositionsNavigation from "components/NavigationComposition/CompositionsNavigation";
 
 const CompositionsPage = () => {
