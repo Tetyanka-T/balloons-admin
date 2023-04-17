@@ -3,22 +3,23 @@ import Basket from "./Basket";
 import s from "./OrdersList.module.scss";
 import moment from "moment";
 import ChangeStatus from "./ChangeStatus";
-import { orderOperations, orderSelectors } from "redux/orders";
+// import { orderOperations, orderSelectors } from "redux/orders";
+import * as API from "../../apiServise/api";
 
-const OrdersList = () => {
+const OrdersList = ({ orders }) => {
   const timeFormat = () => {
     const time = moment().format("L");
     return time;
   };
-  const orders = useSelector(orderSelectors.getOrders);
-  const dispatch = useDispatch();
-  const onDeleteOrder = (id) => dispatch(orderOperations.deleteOrder(id));
+  // const orders = useSelector(orderSelectors.getOrders);
+  // const dispatch = useDispatch();
+  const onDeleteOrder = (id) => API.deleteOrder(id);
 
   return (
     <>
       <ul className={s.orders_list}>
         {orders.map((order) => (
-          <li className={s.orders_list__item} key={order.id}>
+          <li className={s.orders_list__item} key={order._id}>
             <button onClick={() => onDeleteOrder(order.id)}>Delete</button>
             <div className={s.orders_list__item_title}>
               <p>Дата замолення: {timeFormat(order.updatedAt)}</p>

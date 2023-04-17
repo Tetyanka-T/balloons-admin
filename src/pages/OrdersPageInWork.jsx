@@ -7,24 +7,21 @@ import * as API from "../apiServise/api";
 
 const OrdersPageInWork = () => {
   const [orders, setOrders] = useState([]);
-  const [ordersNew, setOrdersNew] = useState([]);
-  console.log(ordersNew);
 
   useEffect(() => {
     API.getOrders().then(setOrders);
   }, []);
 
-  //   useEffect(() => {
-  //     orders.filter((order) => order.statusOrder === "в роботі")
-
-  //   }, []);
-
+  const inWorkOrder = orders.filter(
+    (order) => order.statusOrder === "в роботі"
+  );
+  console.log(inWorkOrder);
   return (
     <>
       <AdminHeader />
       <Container maxWidth="lg">
         <OrderNavigation />
-        {ordersNew && <OrdersList orders={ordersNew} />}
+        {inWorkOrder && <OrdersList orders={inWorkOrder} />}
       </Container>
     </>
   );

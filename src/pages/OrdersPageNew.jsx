@@ -7,27 +7,19 @@ import * as API from "../apiServise/api";
 
 function OrdersPageNew() {
   const [orders, setOrders] = useState([]);
-  const [ordersNew, setOrdersNew] = useState([]);
-  console.log(ordersNew);
 
   useEffect(() => {
     API.getOrders().then(setOrders);
-    const showOrdersNew = () => {
-      if (!orders) {
-        return;
-      }
-      const newOrders = orders.filter((order) => order.statusOrder === "новий");
-      setOrdersNew(newOrders);
-    };
-    showOrdersNew();
   }, []);
+
+  const newOrders = orders.filter((order) => order.statusOrder === "новий");
 
   return (
     <>
       <AdminHeader />
       <Container maxWidth="lg">
         <OrderNavigation />
-        {ordersNew && <OrdersList orders={ordersNew} />}
+        {newOrders && <OrdersList orders={newOrders} />}
       </Container>
     </>
   );
