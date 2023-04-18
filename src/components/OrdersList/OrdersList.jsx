@@ -1,18 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
 import Basket from "./Basket";
 import s from "./OrdersList.module.scss";
-import moment from "moment";
 import ChangeStatus from "./ChangeStatus";
-// import { orderOperations, orderSelectors } from "redux/orders";
 import * as API from "../../apiServise/api";
 
 const OrdersList = ({ orders }) => {
-  const timeFormat = () => {
-    const time = moment().format("L");
-    return time;
-  };
-  // const orders = useSelector(orderSelectors.getOrders);
-  // const dispatch = useDispatch();
   const onDeleteOrder = (id) => API.deleteOrder(id);
 
   return (
@@ -67,9 +58,9 @@ const OrdersList = ({ orders }) => {
                 </li>
               ))}
             </ul>
-            <ChangeStatus order={order.id} />
+            <ChangeStatus order={order} />
             <button
-              onClick={() => onDeleteOrder(order.id)}
+              onClick={() => onDeleteOrder(order._id)}
               className={s.deleteButton}
             >
               Видалити замовлення

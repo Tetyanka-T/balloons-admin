@@ -16,7 +16,7 @@ const theme = createTheme({
 const ChangeComposition = ({ balloons }) => {
   const formik = useFormik({
     initialValues: {
-      id: balloons.id,
+      id: balloons._id,
       name: balloons.name,
       category: balloons.category,
       grup: balloons.grup,

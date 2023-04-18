@@ -8,20 +8,39 @@ import * as API from "../apiServise/api";
 const OrdersPageInWork = () => {
   const [orders, setOrders] = useState([]);
 
+  // useEffect(() => {
+  //   API.getOrders().then(setOrders);
+  // }, []);
+
+  // const inWorkOrder = orders.filter(
+  //   (order) => order.statusOrder === "в роботі"
+  // );
   useEffect(() => {
-    API.getOrders().then(setOrders);
+    async function onFetchOrders() {
+      try {
+        const orders = await API.getOrders();
+
+        if (!orders) {
+          throw new Error();
+        }
+        const newOrders = orders.filter(
+          (order) => order.statusOrder === "в роботі"
+        );
+        setOrders(newOrders);
+      } catch (err) {
+        console.log(err.message);
+      }
+    }
+    onFetchOrders();
   }, []);
 
-  const inWorkOrder = orders.filter(
-    (order) => order.statusOrder === "в роботі"
-  );
   return (
     <>
       <AdminHeader />
       <Container maxWidth="lg">
         <OrderNavigation />
-        {inWorkOrder && <OrdersList orders={inWorkOrder} />}
-        {inWorkOrder.length === 0 && <h2>У вас немає замовлень в роботі</h2>}
+        {orders && <OrdersList orders={orders} />}
+        {orders.length === 0 && <h2>У вас немає замовлень в роботі</h2>}
       </Container>
     </>
   );

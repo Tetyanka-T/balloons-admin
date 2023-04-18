@@ -2,6 +2,8 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://balloons-shop.onrender.com";
 
+// balloons
+
 export const getBalloons = async () => {
   const balloons = await axios.get("api/balloons");
   return balloons.data.data;
@@ -11,14 +13,16 @@ export const getBalloonsById = async (balloonId) => {
   const balloon = await axios.get(`api/balloons/${balloonId}`);
   return balloon.data.data;
 };
-export const changeBalloon = async (balloonId) => {
-  const balloon = await axios.put(`api/balloons/${balloonId}`);
+export const changeBalloon = async (balloonId, balloonChange) => {
+  const balloon = await axios.put(`api/balloons/${balloonId}`, balloonChange);
   return balloon;
 };
 export const addBalloon = async (balloon) => {
   const { data } = await axios.post("api/balloons", balloon);
   return data;
 };
+
+// orders
 export const getOrders = async () => {
   const orders = await axios.get("api/orders");
   return orders.data.data;
@@ -35,6 +39,7 @@ export const deleteOrder = async (orderId) => {
   await axios.delete(`api/orders/${orderId}`);
 };
 
+// admins
 export const registerAdmin = async (credentials) => {
   const response = await axios.post("api/auth/registration", credentials);
   return response;

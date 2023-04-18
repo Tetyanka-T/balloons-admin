@@ -6,11 +6,12 @@
     color: $text-color;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
+    gap: 30px;
 }
 .orders_list__item {
-    border: 1px solid $accent-color;
-    padding: 10px;
+    border: 2px solid $accent-color;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.12), 0px 1px 1px rgba(0,0,0,0.14), 0px 2px 1px rgba(0,0,0,0.2);
+    padding: 20px;
 }
 .orders_list__item_title {
     display: flex;

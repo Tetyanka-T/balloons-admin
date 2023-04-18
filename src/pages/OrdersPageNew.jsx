@@ -7,6 +7,7 @@ import * as API from "../apiServise/api";
 
 function OrdersPageNew() {
   const [orders, setOrders] = useState([]);
+  // const [newOrders, setNewOrders] = useState([]);
 
   useEffect(() => {
     API.getOrders().then(setOrders);
@@ -14,6 +15,24 @@ function OrdersPageNew() {
 
   const newOrders = orders.filter((order) => order.statusOrder === "новий");
 
+  // useEffect(() => {
+  //   async function onFetchOrders() {
+  //     try {
+  //       const orders = await API.getOrders();
+
+  //       if (!orders) {
+  //         throw new Error();
+  //       }
+  //       const newOrders = orders.filter(
+  //         (order) => order.statusOrder === "новий"
+  //       );
+  //       setOrders(newOrders);
+  //     } catch (err) {
+  //       console.log(err.message);
+  //     }
+  //   }
+  //   onFetchOrders();
+  // }, []);
   return (
     <>
       <AdminHeader />

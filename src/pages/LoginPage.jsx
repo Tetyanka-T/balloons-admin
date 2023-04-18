@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
-import { authOperations, authSelectors } from "redux/auth";
+import { authOperations } from "redux/auth";
 import toast from "react-hot-toast";
 import s from "./PagesStyles.module.scss";
 
@@ -61,7 +61,7 @@ function LoginPage() {
           <TextField
             type="password"
             value={password}
-            label="Password"
+            label="Пароль"
             variant="outlined"
             onChange={handleChange}
             className={s.login_form__input}
