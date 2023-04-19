@@ -1,6 +1,6 @@
+import { useState } from "react";
 import CreateComposition from "components/CreateComposition/CreateComposition";
 import SearchComposition from "components/SearchComposition/SearchComposition";
-import { useState } from "react";
 import s from "./CompositionsNavigation.module.scss";
 
 const CompositionsNavigation = () => {

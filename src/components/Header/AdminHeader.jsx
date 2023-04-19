@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { ReactComponent as User } from "../../images/user.svg";
 import { useDispatch } from "react-redux";
-import logo from "../../images/logo.png";
 import { authOperations } from "../../redux/auth";
-
+import { ReactComponent as User } from "../../images/user.svg";
+import logo from "../../images/logo.png";
 import s from "./Header.module.scss";
 
 const AdminHeader = () => {

@@ -1,7 +1,8 @@
-import { Select, FormControl, InputLabel, MenuItem } from "@mui/material";
 import { useState } from "react";
+import { Select, FormControl, InputLabel, MenuItem } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
+import { toast } from "react-hot-toast";
 import * as API from "../../apiServise/api";
 
 const theme = createTheme({
@@ -21,6 +22,7 @@ const ChangeStatus = ({ order }) => {
     };
     API.changeOrderStatus(orderId, statusOrder);
     setStatus(event.target.value);
+    toast.success("Статус замовлення успішно змінено, обновіть сторінку");
   };
 
   return (

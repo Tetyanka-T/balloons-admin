@@ -1,10 +1,14 @@
 import Basket from "./Basket";
-import s from "./OrdersList.module.scss";
 import ChangeStatus from "./ChangeStatus";
 import * as API from "../../apiServise/api";
+import s from "./OrdersList.module.scss";
+import { toast } from "react-hot-toast";
 
 const OrdersList = ({ orders }) => {
-  const onDeleteOrder = (id) => API.deleteOrder(id);
+  const onDeleteOrder = (id) => {
+    API.deleteOrder(id);
+    toast.success("Замовлення успішно видалено");
+  };
 
   return (
     <>

@@ -22,6 +22,10 @@ export const addBalloon = async (balloon) => {
   return data;
 };
 
+export const deleteBalloon = async (balloonId) => {
+  await axios.delete(`api/balloons/${balloonId}`);
+};
+
 // orders
 export const getOrders = async () => {
   const orders = await axios.get("api/orders");

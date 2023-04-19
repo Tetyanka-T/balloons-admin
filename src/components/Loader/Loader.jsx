@@ -5,8 +5,7 @@ const Loader = () => {
   return (
     <div className={s.spin}>
       <TailSpin
-        // wrapperClass={s.spin}
-        color="pink"
+        color="orange"
         height={80}
         width={80}
         ariaLabel="loading-indicator"

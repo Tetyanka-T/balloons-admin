@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import { authOperations } from "redux/auth";
+import { TextField, Button } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
-import { authOperations } from "redux/auth";
 import toast from "react-hot-toast";
 import s from "./PagesStyles.module.scss";
 
