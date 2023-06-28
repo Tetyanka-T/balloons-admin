@@ -4,6 +4,7 @@ import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import { toast } from "react-hot-toast";
 import * as API from "../../apiServise/api";
+import s from "./OrdersList.module.scss";
 
 const theme = createTheme({
   palette: {
@@ -26,7 +27,7 @@ const ChangeStatus = ({ order }) => {
   };
 
   return (
-    <FormControl sx={{ width: 320 }}>
+    <FormControl sx={{ width: 320 }} className={s.changestatus}>
       <ThemeProvider theme={theme}>
         <InputLabel id="status">Змінити статус замовлення</InputLabel>
         <Select

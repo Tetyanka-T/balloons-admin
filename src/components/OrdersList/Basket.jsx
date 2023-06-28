@@ -1,25 +1,22 @@
-import { useEffect, useState } from "react";
-import * as API from "../../apiServise/api";
+// import { useEffect, useState } from "react";
+// import * as API from "../../apiServise/api";
 import s from "./OrdersList.module.scss";
 
 const Basket = ({ basket }) => {
-  const [balloon, setBallons] = useState("");
+  // const [balloon, setBallons] = useState("");
 
-  useEffect(() => {
-    API.getBalloonsById(basket.balloon).then(setBallons);
-  }, [basket.balloon]);
+  // useEffect(() => {
+  //   API.getBalloonsById(basket.balloon).then(setBallons);
+  // }, [basket.balloon]);
 
   return (
     <ul className={s.basket_list}>
-      {/* {balloons.map((balloon) => ( */}
-      <li key={balloon.id} className={s.basket_list__item}>
-        <img src={balloon.imgSrc} alt="" width={340} height={360} />
-        <p>Категорія: {balloon.category}</p>
-        <p>Код: {balloon.code}</p>
-        <p>Ціна: {balloon.price}</p>
-        <p>Кількість: {basket.quantite}</p>
+      <li key={basket.id} className={s.basket_list__item}>
+        <img src={basket.img} alt="" width={340} height={360} />
+        <p>Код: {basket.code}</p>
+        <p>Ціна: {basket.price}</p>
+        <p>Кількість: {basket.quantity}</p>
       </li>
-      {/* ))} */}
     </ul>
   );
 };

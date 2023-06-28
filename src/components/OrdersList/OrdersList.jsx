@@ -42,19 +42,16 @@ const OrdersList = ({ orders }) => {
               <li>Дата свята: {order.deliveryDate}</li>
               <li>Спосіб: {order.deliveryMethod}</li>
               <li>Час: {order.deliveryTime}</li>
-              {order.deliveryStreet && (
-                <li>
-                  Адреса: {order.deliveryStreet}, б.{order.deliveryHause}, кв.
-                  {order.deliveryAppartment}
-                </li>
+              {order.deliveryAddress && (
+                <li>Адреса: {order.deliveryAddress}</li>
               )}
             </ul>
             <ul className={s.orders_list__item_userList}>
               <span>Додаткова інформація</span>
-              <li>Передзвонити: {order.callBack}</li>
+              <li>Передзвонити: {order.callBack === false ? "так" : "ні"}</li>
               <li>Коментар: {order.comment}</li>
             </ul>
-            <ul className={s.orders_list__item_userList}>
+            <ul className={s.orders_list__item_userList_composition}>
               <span>Композиція</span>
               {order.basket.map((b) => (
                 <li key={b.id}>
