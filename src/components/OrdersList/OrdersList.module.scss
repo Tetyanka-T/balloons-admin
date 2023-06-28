@@ -48,10 +48,13 @@
 
 }
 .basket_list__item {
+    margin-top: 15px;
     & p {
         margin-top: 10px;
     }
-    
+}
+.orders_list_amount {
+    margin: 15px 0;
 }
 .text {
     font-weight: 500;
