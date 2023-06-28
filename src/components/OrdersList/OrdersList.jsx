@@ -51,20 +51,19 @@ const OrdersList = ({ orders }) => {
               <li>Передзвонити: {order.callBack === false ? "так" : "ні"}</li>
               <li>Коментар: {order.comment}</li>
             </ul>
-            {order.basket.balloons && (
-              <ul className={s.orders_list__item_userList_composition}>
-                <span>Композиція</span>
 
-                {order.basket.balloons.map((b) => (
-                  <li key={b.id}>
-                    <Basket basket={b} />
-                  </li>
-                ))}
-              </ul>
-            )}
+            <ul className={s.orders_list__item_userList_composition}>
+              <span>Композиція</span>
+
+              {order.basket.balloons.map((b) => (
+                <li key={b.id}>
+                  <Basket basket={b} />
+                </li>
+              ))}
+            </ul>
 
             <p className={s.orders_list_amount}>
-              Сума заказу: {order.basket.amount} грн
+              Сума замовлення: {order.basket.amount} грн
             </p>
             <ChangeStatus order={order} />
             <button
