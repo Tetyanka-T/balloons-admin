@@ -42,9 +42,7 @@ const OrdersList = ({ orders }) => {
               <li>Дата свята: {order.deliveryDate}</li>
               <li>Спосіб: {order.deliveryMethod}</li>
               <li>Час: {order.deliveryTime}</li>
-              {order.deliveryAddress && (
-                <li>Адреса: {order.deliveryAddress}</li>
-              )}
+              {order.userAddress && <li>Адреса: {order.userAddress}</li>}
             </ul>
             <ul className={s.orders_list__item_userList}>
               <span>Додаткова інформація</span>
