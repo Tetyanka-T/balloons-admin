@@ -17,7 +17,13 @@
     display: flex;
     justify-content: space-between;
 }
-
+.orders_number {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 18px;
+    color: $text-color;
+    font-weight: 600;
+}
 .orders_list__item_userList {
     margin: 10px 0;
     & li {

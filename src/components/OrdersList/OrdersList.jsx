@@ -15,9 +15,10 @@ const OrdersList = ({ orders }) => {
       <ul className={s.orders_list}>
         {orders.map((order) => (
           <li className={s.orders_list__item} key={order._id}>
+            <p className={s.orders_number}>Замовлення: № {order.numberOrder}</p>
             <div className={s.orders_list__item_title}>
               <p className={s.text}>
-                Дата замолення: <br />
+                Дата замовлення: <br />
                 {order.updatedAt.split("T")[0]}
               </p>
               <p className={s.text}>
@@ -25,8 +26,10 @@ const OrdersList = ({ orders }) => {
                 {order.statusOrder}
               </p>
             </div>
+
             <ul className={s.orders_list__item_userList}>
               <span>Замовник</span>
+
               <li className={s.orders_list__item_userList__item}>
                 Ім'я: {order.userName}
               </li>

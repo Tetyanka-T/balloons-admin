@@ -38,7 +38,6 @@ const ChangeStatus = ({ order }) => {
           onChange={handleChange}
         >
           <MenuItem value={"в роботі"}>В роботі</MenuItem>
-          <MenuItem value={"завершений"}>Завершений</MenuItem>
         </Select>
       </ThemeProvider>
     </FormControl>
