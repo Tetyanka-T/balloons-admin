@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Select, FormControl, InputLabel, MenuItem } from "@mui/material";
+import {
+  Select,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+} from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import { toast } from "react-hot-toast";
@@ -16,6 +24,17 @@ const theme = createTheme({
 
 const ChangeStatus = ({ order }) => {
   const [statusOrder, setStatus] = useState("");
+  const [statusFinish, setStatusFinish] = useState(false);
+
+  const handleChangeCheck = (event) => {
+    const statusFinish = {
+      statusFinish: event.target.checked,
+    };
+    API.changeOrderStatusFinish(orderId, statusFinish);
+    setStatusFinish(event.target.checked);
+    toast.success("Статус замовлення успішно змінено, обновіть сторінку");
+  };
+
   const orderId = order._id;
   const handleChange = (event) => {
     const statusOrder = {
@@ -39,6 +58,22 @@ const ChangeStatus = ({ order }) => {
         >
           <MenuItem value={"в роботі"}>В роботі</MenuItem>
         </Select>
+        <FormGroup className={s.orderForm_chekbox}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={statusFinish}
+                onChange={handleChangeCheck}
+                className={s.orderForm_chekbox_lable}
+                inputProps={{ "aria-label": "controlled" }}
+                sx={{
+                  color: "#FFA500",
+                }}
+              />
+            }
+            label="Замовлення завершене"
+          />
+        </FormGroup>
       </ThemeProvider>
     </FormControl>
   );

@@ -39,6 +39,13 @@ export const changeOrderStatus = async (orderId, statusOrder) => {
   );
   return response.data;
 };
+export const changeOrderStatusFinish = async (orderId, statusFinish) => {
+  const response = await axios.patch(
+    `api/orders/${orderId}/statusFinish`,
+    statusFinish
+  );
+  return response.data;
+};
 export const deleteOrder = async (orderId) => {
   await axios.delete(`api/orders/${orderId}`);
 };

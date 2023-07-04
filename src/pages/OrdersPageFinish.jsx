@@ -21,7 +21,7 @@ const OrdersPageFinish = () => {
           throw new Error();
         }
         const finishOrders = orders.filter(
-          (order) => order.statusOrder === "завершений"
+          (order) => order.statusFinish === true
         );
         setOrders(finishOrders);
         setReqStatus("resolved");
