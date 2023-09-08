@@ -24,14 +24,19 @@ const theme = createTheme({
 
 const ChangeStatus = ({ order }) => {
   const [statusOrder, setStatus] = useState("");
-  const [statusFinish, setStatusFinish] = useState(false);
+  const [statusFinishCheck, setStatusFinishCheck] = useState(false);
+
+  const changeFinish = () => {
+    const finishOrder = {
+      statusOrder: "завершений",
+    };
+
+    API.changeOrderStatusFinish(orderId, finishOrder);
+  };
 
   const handleChangeCheck = (event) => {
-    const statusFinish = {
-      statusFinish: event.target.checked,
-    };
-    API.changeOrderStatusFinish(orderId, statusFinish);
-    setStatusFinish(event.target.checked);
+    setStatusFinishCheck(event.target.checked);
+    changeFinish();
     toast.success("Статус замовлення успішно змінено, обновіть сторінку");
   };
 
@@ -62,7 +67,7 @@ const ChangeStatus = ({ order }) => {
           <FormControlLabel
             control={
               <Checkbox
-                checked={statusFinish}
+                checked={statusFinishCheck}
                 onChange={handleChangeCheck}
                 className={s.orderForm_chekbox_lable}
                 inputProps={{ "aria-label": "controlled" }}

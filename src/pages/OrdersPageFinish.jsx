@@ -21,9 +21,10 @@ const OrdersPageFinish = () => {
           throw new Error();
         }
         const finishOrders = orders.filter(
-          (order) => order.statusFinish === true
+          (order) => order.statusOrder === "завершений"
         );
         setOrders(finishOrders);
+
         setReqStatus("resolved");
       } catch (err) {
         setReqStatus("rejected");

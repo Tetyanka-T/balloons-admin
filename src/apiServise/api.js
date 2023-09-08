@@ -32,6 +32,10 @@ export const getOrders = async () => {
   return orders.data.data;
 };
 
+export const changeOrder = async (orderId, orderChange) => {
+  const order = await axios.put(`api/orders/${orderId}`, orderChange);
+  return order;
+};
 export const changeOrderStatus = async (orderId, statusOrder) => {
   const response = await axios.patch(
     `api/orders/${orderId}/statusOrder`,

@@ -67,6 +67,7 @@ const OrdersList = ({ orders }) => {
               Сума замовлення: {order.basket.amount} грн
             </p>
             <ChangeStatus order={order} />
+
             <button
               onClick={() => onDeleteOrder(order._id)}
               className={s.deleteButton}
@@ -76,7 +77,6 @@ const OrdersList = ({ orders }) => {
           </li>
         ))}
       </ul>
-      
     </>
   );
 };
